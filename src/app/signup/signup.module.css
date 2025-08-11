@@ -1,0 +1,86 @@
+.container {
+  max-width: 420px;
+  margin: 3rem auto;
+  padding: 2rem 2.5rem;
+  background-color: #fff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  margin-bottom: 2rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  color: #222;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroupLabel {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #444;
+  user-select: none;
+}
+
+.inputField {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1.8px solid #ccc;
+  border-radius: 8px;
+  outline-offset: 2px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  font-family: inherit;
+}
+
+.inputField:focus {
+  border-color: #0070f3;
+  box-shadow: 0 0 6px rgba(0, 112, 243, 0.4);
+}
+
+.errorMessage {
+  color: #d32f2f;
+  font-weight: 600;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.successMessage {
+  color: #388e3c;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #0070f3;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 112, 243, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #005bb5;
+  box-shadow: 0 6px 20px rgba(0, 91, 181, 0.6);
+}
+
+.submitButton:active {
+  background-color: #004080;
+  box-shadow: 0 3px 10px rgba(0, 64, 128, 0.8);
+  transform: translateY(1px);
+}
