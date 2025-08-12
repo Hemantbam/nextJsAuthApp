@@ -1,0 +1,39 @@
+.dashboardContainer {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px 30px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+}
+
+.dashboardTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.dashboardSubtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.dashboardInfo {
+  font-size: 1rem;
+  color: #666;
+  padding: 8px 12px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.loadingText {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 50px;
+  color: #777;
+}

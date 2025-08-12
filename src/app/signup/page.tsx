@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import styles from "./signup.module.css";
+import { signUp } from "../lib/auth/auth";
+import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -10,7 +13,8 @@ export default function SignupPage() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const router = useRouter();
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
     setSuccess("");
@@ -25,7 +29,8 @@ export default function SignupPage() {
       password.trim() === "" ||
       confirmPassword.trim() === ""
     ) {
-      setError("white spaces not accepted.");
+      setError("White spaces not accepted.");
+      return;
     }
 
     if (password !== confirmPassword) {
@@ -38,15 +43,36 @@ export default function SignupPage() {
       return;
     }
 
-      console.log("Signup data:", { email, password });
-      setSuccess("Signup successful!");
+    try {
+      const response = await signUp(email, password);
+
+      if (!response || !response.success) {
+        setSuccess("");
+        setError(response?.message || "Error in registration");
+        toast.error(response?.message || "Error in registration");
+        return;
+      }
+
+      setSuccess(response.message || "Signup successful!");
+      toast.success(response.message || "Signup successful!");
+
       setEmail("");
       setPassword("");
       setConfirmPassword("");
-  };
+
+      setTimeout(() => {
+        router.push("/login");
+      }, 4000);
+    } catch (err: any) {
+      setError(err.message || "Something went wrong");
+      toast.error(err.message || "Something went wrong");
+    }
+  }
 
   return (
     <main className={styles.container}>
+      <ToastContainer position="top-right" autoClose={3000} />
+
       <h1 className={styles.title}>Sign Up</h1>
       <form onSubmit={handleSubmit} noValidate>
         <div className={styles.formGroup}>
